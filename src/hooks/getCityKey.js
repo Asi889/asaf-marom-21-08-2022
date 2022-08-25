@@ -4,7 +4,7 @@ import { setCityData } from "./setCityData";
 
 export async function getCityKey(location) {
    
-    const { data } = await axios.post(`https://localhost:3000/api/autocompleteApi`, { cityName: location });
+    const { data } = await axios.post(`http://localhost:3000/api/autocompleteApi`, { cityName: location });
     
     if( data.length >= 1){
         return data

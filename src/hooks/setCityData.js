@@ -4,7 +4,7 @@ import {store} from "../redux/store"
 
 export async function setCityData (firstInfo){
     
-    const { data } = await axios.post(`https://localhost:3000/api/getWeatherData`,{ cityKey: firstInfo.key, cityName: firstInfo.cityName});
+    const { data } = await axios.post(`http://localhost:3000/api/getWeatherData`,{ cityKey: firstInfo.key, cityName: firstInfo.cityName});
     
     store.dispatch(setCity({...data}))
     
