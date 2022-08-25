@@ -3,6 +3,7 @@ import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper } from "next-redux-wrapper";
 import rootReducer from "./reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
 // initial states here
 const initalState = {};
@@ -11,7 +12,7 @@ const initalState = {};
 const middleware = [thunk];
 
 // creating store
-export const store = createStore(
+export const store = configureStore(
   rootReducer,
   initalState,
   composeWithDevTools(applyMiddleware(...middleware))
