@@ -29,7 +29,7 @@ const Forcast = () => {
     }
 
     return (
-        <div className="flex gap-4 flex-wrap justify-evenly mt-10 ">
+        <div className={`flex gap-4 flex-wrap justify-evenly mt-10 ${forsactState?.weather?.darkMode ? "bg-[#282d78]" : "bg-white"}`}>
             {forsactState?.weather?.city?.info?.forcast?.map((day, index) => {
                 if (index === 0) return
                 return (
