@@ -6,8 +6,8 @@ import path from 'path';
 export default async function getWeatherData(req, res) {
   const jsonDir = path.join(process.cwd(), 'json')
   const localPath = `${jsonDir}/weather-city-tel-aviv.json`;
-  const {data} = await axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${req.body.cityKey}?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q`)
-  const forcast = await axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${req.body.cityKey}?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q&metric=true`)
+  const {data} = await axios.get(`https://dataservice.accuweather.com/currentconditions/v1/${req.body.cityKey}?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q`)
+  const forcast = await axios.get(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${req.body.cityKey}?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q&metric=true`)
   
   // const isFileExists = fs.existsSync(localPath);
   // function isJsonString(str) {

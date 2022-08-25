@@ -21,8 +21,8 @@ const Home = (props) => {
 
       navigator.geolocation.getCurrentPosition(async (position) => {
 
-        const dataByGeo = await axios.get(`http://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q&q=${position.coords.latitude},${position.coords.longitude}`)
-        const { data } = await axios.post(`http://localhost:3000/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
+        const dataByGeo = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=SQ6aUAArCHFgDbAIGdCYLZtbl06IsZ7q&q=${position.coords.latitude},${position.coords.longitude}`)
+        const { data } = await axios.post(`https://localhost:3000/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
         dispatch(setCity(data))
       });
     }
