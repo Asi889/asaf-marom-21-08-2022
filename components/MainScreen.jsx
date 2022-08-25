@@ -15,7 +15,7 @@ const MainScreen = () => {
         if (state) {
             return <Image src={day} layout="fill" alt="" />
         }
-        <Image src={night} layout="fill" alt="" />
+        return <Image src={night} layout="fill" alt="" />
     }
 
     return (
