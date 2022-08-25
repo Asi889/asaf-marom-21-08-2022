@@ -14,6 +14,9 @@ const Home = (props) => {
   const store = useStore();
   const state = useSelector(() => store.getState());
   const [firstData, setFirstData] = useState("")
+  // console.log(process.env.NEXT_PUBLIC_FRONT_PRODUCTION_URL);
+  console.log(process.env.NEXT_PUBLIC_FRONT_PRODUCTION_URL);
+  console.log("process.env.customKey");
 
   const dispatch = useDispatch();
   useEffect(() => {
@@ -21,9 +24,8 @@ const Home = (props) => {
 
       navigator.geolocation.getCurrentPosition(async (position) => {
 
-        const dataByGeo = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=iuYCVmM4ZGDOtDK6NbonD2qmDrYAsDHm&q=${position.coords.latitude},${position.coords.longitude}`)
-        // const { data } = await axios.post(`http://localhost:3000/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
-        const { data } = await axios.post(`https://asaf-marom-21-08-2022.vercel.app/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
+        const dataByGeo = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=${process.env.NEXT_PUBLIC_API_KEY}&q=${position.coords.latitude},${position.coords.longitude}`)
+        const { data } = await axios.post(`${process.env.NEXT_PUBLIC_FRONT_PRODUCTION_URL}/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
         dispatch(setCity(data))
       });
     }
