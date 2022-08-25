@@ -2,8 +2,6 @@
 
 import axios from "axios";
 import path from 'path';
-const fs = require('fs');
-const fsp = require('fs').promises
 
 export default async function getWeatherData(req, res) {
   const jsonDir = path.join(process.cwd(), 'json')
