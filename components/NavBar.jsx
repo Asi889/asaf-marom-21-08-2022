@@ -19,15 +19,15 @@ const NavBar = () => {
                 <div className="flex gap-x-6 ">
 
                     <Link href="/" >
-                        <a className={`${state ? "text-[#4C52AD]" : "text-white"}  text-2xl font-semibold hover:text-[#ededf2] active:text-[25px]`} >home</a>
+                        <a className={`${state ? "text-[#4C52AD]" : "text-white"}  text-2xl font-semibold hover:text-[#ededf2] active:text-[25px]`} >Home</a>
                     </Link>
 
                     <Link href="/favorites" >
-                        <a className={`${state ? "text-[#4C52AD]" : "text-white"} text-2xl font-semibold hover:text-[#ededf2]`} >favorites</a>
+                        <a className={`${state ? "text-[#4C52AD]" : "text-white"} text-2xl font-semibold hover:text-[#ededf2]`} >Favorites</a>
                     </Link>
                 </div>
 
-                <div className="grid items-center pr-10">
+                <div className="grid items-center pr-14 md:pr-[40px]">
                     <div onClick={toggleModeDark} id="toggle" className={`h-max  ${state ? "bg-[#1a202c]" : "bg-white"} `}>
                         <div className={` ${state ? "toggle-inner bg-white" : "toggle-inner toggle-active bg-[#1a202c]"} `} />
                     </div>

@@ -59,7 +59,7 @@ const SearchFiled = () => {
             <div className="grid relative">
                 <div className={`${errorMsg ? "block" : "hidden"} text-red-500 text-lg font-semibold`}>{errorMsg}</div>
                 <input className={`${state?.weather?.darkMode ? "bg-[#9086e8] " + " text-white placeholder:text-white" : "bg-[#6f65cc] text-gray-300 placeholder:text-gray-300 "} ${errorMsg ? "placeholder:text-red-400 font-semibold " : ""} outline-none border-none rounded-2xl p-4  text-lg text-center `}
-                    onChange={(e) => setLocation(e.target.value)} value={location} type="text" placeholder="Search City" name="city" />
+                    onChange={(e) => setLocation(e.target.value)} value={location} type="text" placeholder="Search city" name="city" />
                 <DropdownList setToggle={setToggle} toggle={toggle} list={list} />
             </div>
 

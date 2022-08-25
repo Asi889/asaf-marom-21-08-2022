@@ -21,8 +21,9 @@ const Home = (props) => {
 
       navigator.geolocation.getCurrentPosition(async (position) => {
 
-        const dataByGeo = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=dBxxFGHJtkJc5uz2eRkZu2aQPWcAx5ub&q=${position.coords.latitude},${position.coords.longitude}`)
-        const { data } = await axios.post(`https://asaf-marom-21-08-2022.vercel.app/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
+        const dataByGeo = await axios.get(`https://dataservice.accuweather.com/locations/v1/cities/geoposition/search/?apikey=ff7cn8oiZ10ReSrVhahGdoMr6S27ilZX&q=${position.coords.latitude},${position.coords.longitude}`)
+        // const { data } = await axios.post(`http://localhost:3000/api/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
+        const { data } = await axios.post(`https://asaf-marom-21-08-2022.vercel.app/getWeatherData`, { cityKey: dataByGeo.data.Key, cityName: dataByGeo.data.AdministrativeArea.EnglishName });
         dispatch(setCity(data))
       });
     }
@@ -40,7 +41,7 @@ const Home = (props) => {
       <div className="grid justify-center pt-20 gap-x-10">
         <SearchFiled />
 
-        <div className={`container w-[400px] ${state?.weather?.darkMode ? "bg-[#9086e8]" : "bg-[#4C52AD]"}  rounded-2xl shadow-xl  `}  >
+        <div className={`container  w-[300px] md:w-[400px] ${state?.weather?.darkMode ? "bg-[#9086e8]" : "bg-[#4C52AD]"}  rounded-2xl shadow-xl  `}  >
           <MainScreen />
           <MoreInfo />
         </div>

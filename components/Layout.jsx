@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 const Layout = function ({ children }) {
 //   const { pathname } = useRouter();
   return (
-    <section className="w-screen ">      
+    <section className="w-screen max-w-[470px] md:max-w-full">      
         <NavBar /> 
       <main className="">{children}</main>
     </section>
