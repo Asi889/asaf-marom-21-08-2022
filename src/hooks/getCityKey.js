@@ -4,7 +4,7 @@ import { setCityData } from "./setCityData";
 
 export async function getCityKey(location) {
    
-    const { data } = await axios.post(`http://localhost:3000/api/autocompleteApi`, { cityName: location });
+    const { data } = await axios.post(`https://asaf-marom-21-08-2022.vercel.app.api/autocompleteApi`, { cityName: location });
     
     if( data.length >= 1){
         return data
