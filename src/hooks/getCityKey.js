@@ -3,15 +3,15 @@ import { setCityData } from "./setCityData";
 
 
 export async function getCityKey(location) {
-   
+
     const { data } = await axios.post(`${process.env.NEXT_PUBLIC_FRONT_PRODUCTION_URL}/api/autocompleteApi`, { cityName: location });
 
-    if( data.length >= 1){
+    if (data.length >= 1) {
         return data
     }
-    
-    if(data.length === 0){
-      return false  
+
+    if (data.length === 0) {
+        return false
     }
     let dataTosend = {
         key: data[0]?.Key,
