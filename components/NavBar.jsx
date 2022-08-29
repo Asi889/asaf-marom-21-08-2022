@@ -15,19 +15,19 @@ const NavBar = () => {
     return (
         <div className={`nav bar bbc h-20 w-screen ${state ? "bg-[#a7acf6]" : "bg-[#4C52AD]"}  pt-5 pl-5`}>
 
-            <div className="flex gap-x-6  transition justify-between">
-                <div className="flex gap-x-6 ">
+            <div className="flex gap-x-6 items-end transition justify-between">
+                <div className="flex gap-x-6 text-xl md:text-2xl  items-end">
 
                     <Link href="/" >
-                        <a className={`${state ? "text-[#4C52AD]" : "text-white"}  text-2xl font-semibold hover:text-[#ededf2] active:text-[25px]`} >Home</a>
+                        <a className={`${state ? "text-[#4C52AD]" : "text-white"}   font-semibold hover:text-[#ededf2] active:text-[25px]`} >Home</a>
                     </Link>
 
                     <Link href="/favorites" >
-                        <a className={`${state ? "text-[#4C52AD]" : "text-white"} text-2xl font-semibold hover:text-[#ededf2]`} >Favorites</a>
+                        <a className={`${state ? "text-[#4C52AD]" : "text-white"}  font-semibold hover:text-[#ededf2]`} >Favorites</a>
                     </Link>
                 </div>
 
-                <div className="grid items-center pr-14 md:pr-[40px]">
+                <div className="grid justify-items-center items-end pr-5 ">
                     <div onClick={toggleModeDark} id="toggle" className={`h-max  ${state ? "bg-[#1a202c]" : "bg-white"} `}>
                         <div className={` ${state ? "toggle-inner bg-white" : "toggle-inner toggle-active bg-[#1a202c]"} `} />
                     </div>
@@ -39,4 +39,4 @@ const NavBar = () => {
     )
 };
 
-export default NavBar;
+export default connect()(NavBar);

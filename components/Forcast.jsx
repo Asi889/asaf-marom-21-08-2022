@@ -1,21 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import { connect, useStore, useSelector } from "react-redux";
-import { useEffect, useState } from 'react';
-import Image from 'next/future/image';
 
 
 const Forcast = () => {
     const store = useStore();
 
-    const forsactState = useSelector(()=>store.getState());
+    const forsactState = useSelector(() => store.getState());
     const getDay = (num) => {
 
         var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         var dayNum = new Date(num * 1000).getDay();
         var result = days[dayNum];
-        return result
+        if(result === "Tuesday" || result === "Thursday") return result.substring(0,4)
+        return result.substring(0,3)
     }
-  
+
 
     const getIcon = (num) => {
         function importAll(r) {
@@ -29,11 +28,12 @@ const Forcast = () => {
     }
 
     return (
-        <div className={`flex gap-4 flex-wrap justify-evenly mt-10 ${forsactState?.weather?.darkMode ? "bg-[#282d78]" : "bg-white"}`}>
+        <div className={`flex gap-x-1 pb-4 justify-evenly mt-5 ${forsactState?.weather?.darkMode ? "" : "bg-[#6a71d8]]"} transition	duration-700 ease-in-out`}>
+
             {forsactState?.weather?.city?.info?.forcast?.map((day, index) => {
                 if (index === 0) return
                 return (
-                    <div key={index} className={`${forsactState?.weather?.darkMode ? "bg-[#9086e8] text-[#4C52AD] font-semibold" : "bg-[#4C52AD] text-white"}  text-2xl p-4  grid gap-y-4 text-center rounded-md min-w-[200px] justify-center`}>
+                    <div key={index} className={`  text-lg  grid gap-y-4 text-center rounded-md  justify-center text-white`} >
                         <h1>{getDay(day?.EpochDate)}</h1>
                         <h1>{day?.Temperature.Maximum.Value}°C</h1>
                         <div className="w-full">

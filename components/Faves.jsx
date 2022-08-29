@@ -24,7 +24,7 @@ const Faves = () => {
     }
 
     return (
-        <div className={`flex gap-x-5 pt-10 justify-center ${colorMode ? "bg-[#282d78]" : "bg-white"} h-screen`}>
+        <div className={`flex gap-5 pt-10 justify-center flex-wrap ${colorMode ? "bg-[#282d78]" : "bg-white"} transition duration-700 ease-in-out`}>
             {favorites && favorites.map((city, index) => {
                 return (
                     <Link href="/" key={index} >
